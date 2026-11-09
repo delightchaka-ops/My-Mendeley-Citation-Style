@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-GB">
+  <info>
+    <title>Custom RSC Six Authors Superscript Bold Year Revised</title>
+    <id>https://example.org/styles/custom-rsc-six-authors-superscript-bold-year-revised</id>
+    <link href="https://example.org/styles/custom-rsc-six-authors-superscript-bold-year-revised" rel="self"/>
+    <author><name>Custom thesis citation style</name></author>
+    <category citation-format="numeric"/>
+    <category field="chemistry"/>
+    <summary>Superscript numerical citations; six authors then et al.; italic journal title; bold year; normal volume.</summary>
+    <updated>2026-11-09T00:00:00+00:00</updated>
+  </info>
+  <macro name="authors">
+    <names variable="author" et-al-min="7" et-al-use-first="6" delimiter-precedes-et-al="always">
+      <name initialize-with=". " delimiter=", " and="text" delimiter-precedes-last="never"/>
+      <et-al font-style="italic"/>
+      <substitute>
+        <names variable="editor"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="journal">
+    <text variable="container-title" font-style="italic"/>
+  </macro>
+  <macro name="year">
+    <date variable="issued">
+      <date-part name="year" font-weight="bold"/>
+    </date>
+  </macro>
+  <citation collapse="citation-number">
+    <sort>
+      <key variable="citation-number"/>
+    </sort>
+    <layout vertical-align="sup" delimiter=",">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+  <bibliography entry-spacing="0" line-spacing="1">
+    <layout suffix=".">
+      <text variable="citation-number" suffix=". "/>
+      <group delimiter=", ">
+        <text macro="authors"/>
+        <text macro="journal"/>
+        <text macro="year"/>
+        <text variable="volume"/>
+        <text variable="page"/>
+      </group>
+    </layout>
+  </bibliography>
+</style>
