@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-GB">
+  <info>
+    <title>Custom RSC - Six Authors, Superscript, Bold Year</title>
+    <id>http://www.zotero.org/styles/custom-rsc-six-authors-superscript-bold-year</id>
+    <link href="http://www.zotero.org/styles/custom-rsc-six-authors-superscript-bold-year" rel="self"/>
+    <category citation-format="numeric"/>
+    <category field="chemistry"/>
+    <summary>RSC-inspired thesis style: superscript citations; first six authors followed by et al. for seven or more; italic journal, bold year, normal volume and pages.</summary>
+    <updated>2026-11-09T00:00:00+00:00</updated>
+  </info>
+  <macro name="authors">
+    <names variable="author" et-al-min="7" et-al-use-first="6">
+      <name name-as-sort-order="all" sort-separator=" " initialize-with=". " delimiter=", " and="text" delimiter-precedes-last="never"/>
+      <et-al font-style="italic"/>
+      <substitute><names variable="editor"/><text variable="title"/></substitute>
+    </names>
+  </macro>
+  <macro name="journal">
+    <choose>
+      <if variable="container-title">
+        <text variable="container-title" font-style="italic"/>
+      </if>
+      <else><text variable="title" font-style="italic"/></else>
+    </choose>
+  </macro>
+  <macro name="date">
+    <date variable="issued"><date-part name="year" font-weight="bold"/></date>
+  </macro>
+  <citation collapse="citation-number" after-collapse-delimiter=",">
+    <layout vertical-align="sup" delimiter=",">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+  <bibliography second-field-align="flush" entry-spacing="0" line-spacing="1">
+    <layout suffix=".">
+      <text variable="citation-number" suffix=" "/>
+      <group delimiter=", ">
+        <text macro="authors"/>
+        <text macro="journal"/>
+        <text macro="date"/>
+        <text variable="volume"/>
+        <text variable="page"/>
+      </group>
+    </layout>
+  </bibliography>
+</style>
